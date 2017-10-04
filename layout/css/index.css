@@ -65,6 +65,9 @@ header .container {
 
 
 /* TODO: make the <div class="col"> elements layout side-by-side instead of stacked */
+/* <div class="row"> is the parent element of the <div class="col"> elements,
+so if we set display: flex; on it, the immediate child elements will layout
+side-by-side instead of stacked. */
 .row {
     display: flex;
 }
@@ -75,9 +78,16 @@ header .container {
     min-height: 150px;
     font-weight: 600;
     color: #FFF;
+    
+    /* setting display: flex; on this element
+    allows us to center the text content both 
+    horizontally and vertically*/
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* flex: 1; will make the columns grow 
+    equally in size to fill the available row width */
     flex: 1;
 }
 
@@ -85,8 +95,4 @@ header .container {
 to #E65100 so that we can see where the column begin/end */
 .col:nth-of-type(odd) {
     background-color: #E65100;
-}
-
-.col:nth-of-type(1) {
-    flex: 0 0 250px;
 }
