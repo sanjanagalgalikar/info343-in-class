@@ -44,6 +44,7 @@ BABYNAMES.sort(function(rec1, rec2) {
 //triggers a re-render of the UI.
 
 /**
+ * @property {BabyNameRecord[]} records
  * @property {number} currentPage
  */
 let state = {
@@ -56,10 +57,12 @@ let state = {
 //<tbody> element that is already in the page.
 
 /**
- * Creates and returns a new DOM element...
- * @param {string} name 
+ * Creates and returns a new DOM element using `name`
+ * as the element name, value as the textContent, and
+ * className as the style class name.
+ * @param {string} name the element name
  * @param {*} value 
- * @param {string} className 
+ * @param {string} [className]
  */
 function createElem(name, value, className) {
     let elem = document.createElement(name);
@@ -71,13 +74,15 @@ function createElem(name, value, className) {
 }
 
 /**
- * Renders a record as a table row
+ * Renders a record as a table row (<tr>)
+ * element and returns that element.
  * @param {BabyNameRecord} record 
+ * @returns {HTMLElement}
  */
 function renderTableRow(record) {
     let tr = document.createElement("tr");
-    tr.appendChild(createElem("td", record.name, ""));
-    tr.appendChild(createElem("td", record.sex, ""));
+    tr.appendChild(createElem("td", record.name));
+    tr.appendChild(createElem("td", record.sex));
     tr.appendChild(createElem("td", record.count, "text-right"));
     return tr;
 }
