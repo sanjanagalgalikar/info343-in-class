@@ -48,3 +48,4 @@ boxFive.addEventListener('mouseover', function (evt) {
 	this.classList.remove('red');
 	this.classList.add('black');
 });
+boxSix = document.querySelector('#six');
