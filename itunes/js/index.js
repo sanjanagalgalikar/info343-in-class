@@ -84,6 +84,10 @@ function renderResults(data) {
 document.querySelector("#search-form")
     .addEventListener("submit", function(evt) {
         evt.preventDefault();
+        //find the <input> element within the <form> element
+        //during an event listener function, the keyword `this`
+        //refers to the element that raised the event, which in
+        //this case is the <form> element.
         let term = this.querySelector("input").value;
         console.log("searching for %s", term);
 
